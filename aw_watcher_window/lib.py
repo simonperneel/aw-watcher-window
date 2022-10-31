@@ -1,13 +1,9 @@
 import sys
 from typing import Optional
 
-<<<<<<< HEAD
 # own module
 from .util import alter_window_info
-=======
 from .exceptions import FatalError
-
->>>>>>> upstream/master
 
 def get_current_window_linux() -> Optional[dict]:
     from . import xlib
