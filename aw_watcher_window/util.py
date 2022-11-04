@@ -84,7 +84,7 @@ def alter_window_info(active_window: dict) -> dict:
 
     # Change window title from browser app events
     else:
-        altered_title = _change_title(active_title, active_url)
+        altered_title = _map_title(active_title, active_url)
         active_window['title'] = altered_title
         # don't log url
         if url:
@@ -92,25 +92,6 @@ def alter_window_info(active_window: dict) -> dict:
         altered_window = active_window
 
         return altered_window
-
-
-def _change_title(title: str, url=None):
-    """
-    changes title from active window to category based on keywords in title
-    # todo what to do when two keywords are in the title?
-    """
-    """if url:
-        # crazy mapping from url to category
-        url = urlparse(url).hostname
-        try:
-            title = url.replace(url, _map_url(url))
-        except AttributeError as ae:
-            title = 'excluded',,
-
-    else:"""
-    title = _map_title(title)
-
-    return title
 
 
 def _map_url(url):
