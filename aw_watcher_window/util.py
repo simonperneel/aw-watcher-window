@@ -84,7 +84,7 @@ def alter_window_info(active_window: dict) -> dict:
 
     # Change window title from browser app events
     else:
-        altered_title = _map_title(active_title, active_url)
+        altered_title = _map_title(active_title)
         active_window['title'] = altered_title
         # don't log url
         if url:
