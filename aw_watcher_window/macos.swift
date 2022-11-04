@@ -194,7 +194,7 @@ func sendHeartbeatSingle(_ heartbeat: Heartbeat, pulsetime: Double) async throws
     throw HeartbeatError.error(msg: "Failed to send heartbeat: \(response)")
   }
   // TODO: remove this debug logging when done
-  print("[heartbeat] timestamp: \(heartbeat.timestamp), pulsetime: \(round(pulsetime * 10) / 10), app: \(heartbeat.data.app), title: \(heartbeat.data.title)")
+  print("[heartbeat] timestamp: \(heartbeat.timestamp), pulsetime: \(round(pulsetime * 10) / 10), app: \(heartbeat.data.app), title: excluded")
 }
 
 class MainThing {
