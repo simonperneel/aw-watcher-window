@@ -71,9 +71,8 @@ def alter_window_info(active_window: dict) -> dict:
         url = True
 
     browsers = ['Chrome', 'Safari', 'Edge', 'Firefox', 'Brave Browser', 'Opera', 'brave.exe', 'chrome.exe',
-                'msedge.exe', 'firefox.exe']  # todo: extend list?
-
-    # delete title from non-browser apps (for privacy)
+                'msedge.exe', 'firefox.exe']
+    # delete title from non-browser apps (for privacy reasons)
     if active_app not in browsers:
         try:
             active_window.pop('title')
@@ -82,7 +81,7 @@ def alter_window_info(active_window: dict) -> dict:
 
         return active_window
 
-    # Change window title from browser app events
+    # Change window title for browser activity
     else:
         altered_title = _map_title(active_title)
         active_window['title'] = altered_title
