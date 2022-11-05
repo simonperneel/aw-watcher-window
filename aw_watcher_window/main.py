@@ -91,7 +91,7 @@ def main():
             bucket_id,
             poll_time=args.poll_time,
             strategy='jxa',
-            exclude_title=args.exclude_title,
+            exclude_title=False,
         )
 
 
