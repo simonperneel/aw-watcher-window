@@ -33,8 +33,9 @@ def get_current_window_macos(strategy: str) -> Optional[dict]:
         return altered_window
     elif strategy == "applescript":
         from . import macos_applescript
-
-        return macos_applescript.getInfo()
+        active_window = macos_applescript.getInfo()
+        altered_window = alter_window_info(active_window)
+        return altered_window
     else:
         raise FatalError(f"invalid strategy '{strategy}'")
 

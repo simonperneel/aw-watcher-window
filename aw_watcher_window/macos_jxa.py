@@ -50,7 +50,7 @@ def getInfo() -> Dict[str, str]:
 
     result, err = script.executeAndReturnError_(None)
 
-    #if err:
+    if err:
         # error structure:
         # {
         #     NSLocalizedDescription = "Error: Error: Can't get object.";
@@ -61,7 +61,7 @@ def getInfo() -> Dict[str, str]:
         #     OSAScriptErrorRangeKey = "NSRange: {0, 0}";
         # }
 
-        #raise Exception(f"jxa error: {err['NSLocalizedDescription']}")
+        raise Exception(f"jxa error: {err['NSLocalizedDescription']}")
 
     return json.loads(result.stringValue())
 
