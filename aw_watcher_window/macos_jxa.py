@@ -50,7 +50,7 @@ def getInfo() -> Dict[str, str]:
 
     result, err = script.executeAndReturnError_(None)
 
-    if err:
+    #if err:
         # error structure:
         # {
         #     NSLocalizedDescription = "Error: Error: Can't get object.";
