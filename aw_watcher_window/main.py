@@ -63,7 +63,7 @@ def main():
 
     sleep(1)  # wait for server to start
     with client:
-        """if sys.platform == "darwin" and args.strategy == "swift":
+        if sys.platform == "darwin" and args.strategy == "swift":
             logger.info("Using swift strategy, calling out to swift binary")
             binpath = os.path.join(
                 os.path.dirname(os.path.realpath(__file__)), "aw-watcher-window-macos"
@@ -85,14 +85,14 @@ def main():
             except KeyboardInterrupt:
                 print("KeyboardInterrupt")
                 kill_process(p.pid)
-    else:"""
-        heartbeat_loop(
-            client,
-            bucket_id,
-            poll_time=args.poll_time,
-            strategy='jxa',
-            exclude_title=False,
-        )
+        else:
+            heartbeat_loop(
+                client,
+                bucket_id,
+                poll_time=args.poll_time,
+                strategy=args.strategy,
+                exclude_title=args.exclude_title,
+            )
 
 
 def heartbeat_loop(client, bucket_id, poll_time, strategy, exclude_title=False):
