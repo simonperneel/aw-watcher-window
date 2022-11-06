@@ -7,10 +7,10 @@ build:
 	#	make build-swift; \
 	#fi
 
-#build-swift: aw_watcher_window/aw-watcher-window-macos
+build-swift: aw_watcher_window/aw-watcher-window-macos
 
-#aw_watcher_window/aw-watcher-window-macos: aw_watcher_window/macos.swift
-#	swiftc $^ -o $@
+aw_watcher_window/aw-watcher-window-macos: aw_watcher_window/macos.swift
+	swiftc $^ -o $@
 
 test:
 	aw-watcher-window --help
