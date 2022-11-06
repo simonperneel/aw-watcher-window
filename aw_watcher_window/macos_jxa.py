@@ -61,7 +61,7 @@ def getInfo() -> Dict[str, str]:
         #     OSAScriptErrorRangeKey = "NSRange: {0, 0}";
         # }
 
-        raise Exception(f"jxa error: {err['NSLocalizedDescription']}")
+        raise Exception(f"jxa error: {err['NSLocalizedFailureReason']}")
 
     return json.loads(result.stringValue())
 
