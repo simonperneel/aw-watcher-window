@@ -23,7 +23,6 @@ url_to_cat_map.update(dict.fromkeys(['www.mail.google.com', 'www.outlook.office3
 url_to_cat_map.update(dict.fromkeys(['www.zoom.us, meet.google.com'], 'Videoconferencing'))
 url_to_cat_map.update(dict.fromkeys(['calendar.google.com', 'www.teams.microsoft.com', 'www.docs.google.com', 'www.deepl.com', 'www.translate.google.com', 'www.miro.com/login/'], 'Work & Productivity'))
 url_to_cat_map.update(dict.fromkeys(['www.streamz.be', 'www.vtm.be', 'www.primevideo.com', 'yelo.telenet.tv', 'www.proximus.be', 'www.hbomax.com', 'www.vimeo.com', 'www.twitch.tv'], 'Video'))
-url_to_cat_map.update(dict.fromkeys(['www.littlebigsnake.com', 'www.catanuniverse.com', 'www.primevideo.com', 'yelo.telenet.tv', 'www.proximus.be', 'www.hbomax.com', 'www.vimeo.com', 'www.twitch.tv'], 'Entertainment & Games'))
 url_to_cat_map.update(dict.fromkeys(['www.littlebigsnake.com', 'www.catanuniverse.com', 'www.prosperousuniverse.com', 'www.nl.forgeofempires.com',
                                      'www.agar.io', 'www.play.isleward.com', 'www.linerider.com', 'www.adarkroom.doublespeakgames.com'], 'Entertainment & Games'))
 url_to_cat_map.update(dict.fromkeys(['www.spotify.com', 'www.music.apple.com'], 'Music & Audio'))
@@ -47,9 +46,7 @@ title_to_cat_map.update(dict.fromkeys(['reddit', '9gag', 'tumblr', 'blogspot'], 
 title_to_cat_map.update(dict.fromkeys(['outlook', 'gmail', 'yahoo', 'scarlet'], 'Email'))
 title_to_cat_map.update(dict.fromkeys(['zoom', 'google meet', 'google agenda', 'microsoft teams', 'google documenten', 'google spreadsheets',
                                        'google presentaties', 'google formulieren', 'deepl', 'google translate', 'google drive', 'miro',
-                                       'Adobe'], 'Work & Productivity'))
-
-
+                                       'adobe'], 'Work & Productivity'))
 
 def alter_window_info(active_window: dict) -> dict:
     """

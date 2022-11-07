@@ -36,12 +36,26 @@ struct Bucket: Codable {
   var hostname: String
 }
 
-let website_to_cat_map = ["facebook": "Facebook", "vrt nws": "News", "nieuwsblad": "News", "de morgen":"News", "mo.be": "News", "knack": "News", 
-"bbc": "News", "the guardian": "News", "al jazeera": "News", "hln": "News", "fox news": "News", "humo": "News", "instagram":"Instagram", "youtube":"Youtube", "twitter":"Twitter", "tiktok":"Tiktok",
-"bereal":"BeReal", "discord": "Discord", "snapchat":"Snapchat", "whatsapp": "Messaging", "messenger":"Messaging", "reddit": "Forum & Blogs", "9gag": "Forum & Blogs", "tumblr": "Forum & Blogs", "blogspot":"Forum & Blogs",
-"outlook":"Email", "gmail":"Email", "yahoo":"Email", "scarlet":"Email", "zoom":"Work & Productivity", "google meet":"Work & Productivity", "google agenda":"Work & Productivity", "microsoft teams":"Work & Productivity", "google documenten":"Work & Productivity",
-"google spreadsheets":"Work & Productivity", "google presentaties":"Work & Productivity", "google formulieren":"Work & Productivity","deepl":"Work & Productivity", "google translate":"Work & Productivity", "google drive":"Work & Productivity",
-"miro":"Work & Productivity", "adobe":"Work & Productivity"]
+// define browser to track certain website
+let browsers = ["Safari", "Google Chrome", "Brave Browser", "Firefox", "Opera", "Microsoft Edge", "Opera Browser"]
+
+// Mapping from websites to categories
+let website_to_cat_map = ["facebook": "Facebook", 
+"vrt nws": "News", "nieuwsblad": "News", "de morgen": "News", "mo.be": "News", "knack": "News", "de standaard": "News", "bbc": "News", "the guardian": "News", "al jazeera": "News", "hln": "News","cnn":"News", "fox news": "News", "humo": "News",
+"instagram": "Instagram", "youtube": "Youtube", "twitter": "Twitter", "tiktok": "Tiktok",
+"bereal": "BeReal", "discord": "Discord", "snapchat": "Snapchat", 
+"whatsapp": "Messaging", "messenger": "Messaging", 
+"reddit": "Forum & Blogs", "9gag": "Forum & Blogs", "tumblr": "Forum & Blogs", "blogspot":"Forum & Blogs",
+"outlook":"Email", "gmail":"Email", "yahoo":"Email", "scarlet":"Email", 
+"zoom":"Work & Productivity", "google meet":"Work & Productivity", "google agenda":"Work & Productivity", "microsoft teams":"Work & Productivity", "google documenten":"Work & Productivity", "google spreadsheets":"Work & Productivity", 
+"google presentaties":"Work & Productivity", "google formulieren":"Work & Productivity","deepl":"Work & Productivity", "google translate":"Work & Productivity", "google drive":"Work & Productivity", "miro":"Work & Productivity", "adobe":"Work & Productivity",
+"netflix":"Video", "streamz":"Video", "vtm go":"Video", "prime video": "Video", "telenet tv": "Video", "proximus pickx": "Video", "hbo max": "Video", "vimeo": "Video", "twitch": "Video",
+"spotify": "Music & Audio", "apple music": "Music & Audio",
+"zalando.be": "Shopping", "amazon.com": "Shopping", "amazon.nl":"Shopping", "bol.com":"Shopping", "coolblue":"Shopping", "collect&go": "Shopping", "delhaize":"Shopping", "carrefour":"Shopping", "albert heijn":"Shopping",
+"foodbag": "Shopping", "hellofresh": "Shopping",
+"little big snake": "Entertainment & Games", "catan": "Entertainment & Games", "prosperous universe": "Entertainment & Games", "forge of empires": "Entertainment & Games", "agar.io": "Entertainment & Games",
+"isleward": "Entertainment & Games", "line rider": "Entertainment & Games", "a firelit room": "Entertainment & Games", 
+]
 
 // Placeholder values, set in start()
 var baseurl = "http://localhost:5600"
@@ -205,8 +219,6 @@ func sendHeartbeatSingle(_ heartbeat: Heartbeat, pulsetime: Double) async throws
 }
 
 func transformWindowTitle(app: String ,title: String) -> String {
-  let browsers = ["Safari", "Google Chrome", "Brave Browser", "Firefox"]
-
   // If app is a browser
   if (browsers.contains(app)) {
     // keep track of certain sites
@@ -237,6 +249,7 @@ class MainThing {
     var windowTitle: AnyObject?
     AXUIElementCopyAttributeValue(axElement, kAXTitleAttribute as CFString, &windowTitle)
 
+    // transform title
     var altered_title = windowTitle as? String ?? ""
     altered_title = transformWindowTitle(app: frontmost.localizedName!, title: altered_title)
 
