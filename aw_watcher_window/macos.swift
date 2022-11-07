@@ -194,7 +194,7 @@ func sendHeartbeatSingle(_ heartbeat: Heartbeat, pulsetime: Double) async throws
     throw HeartbeatError.error(msg: "Failed to send heartbeat: \(response)")
   }
   // TODO: remove this debug logging when done
-  print("[heartbeat] timestamp: \(heartbeat.timestamp), pulsetime: \(round(pulsetime * 10) / 10), app: \(heartbeat.data.app), title: excluded")
+  print("[heartbeat] timestamp: \(heartbeat.timestamp), pulsetime: \(round(pulsetime * 10) / 10), app: \(heartbeat.data.app), title: \(heartbeat.data.title)")
 }
 
 class MainThing {
@@ -211,7 +211,9 @@ class MainThing {
     var windowTitle: AnyObject?
     AXUIElementCopyAttributeValue(axElement, kAXTitleAttribute as CFString, &windowTitle)
 
-    var data = NetworkMessage(app: frontmost.localizedName!, title: windowTitle as? String ?? "")
+    let altered_title = "excluded"
+
+    var data = NetworkMessage(app: frontmost.localizedName!, title: altered_title as? String ?? "")
 
     if frontmost.localizedName == "Google Chrome" {
       let chromeObject: ChromeProtocol = SBApplication.init(bundleIdentifier: "com.google.Chrome")!
