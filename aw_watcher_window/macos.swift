@@ -197,6 +197,19 @@ func sendHeartbeatSingle(_ heartbeat: Heartbeat, pulsetime: Double) async throws
   print("[heartbeat] timestamp: \(heartbeat.timestamp), pulsetime: \(round(pulsetime * 10) / 10), app: \(heartbeat.data.app), title: \(heartbeat.data.title)")
 }
 
+func transformWindowTitle(app: String ,title: String) -> String {
+  let browsers = ["Safari", "Google Chrome", "Brave Browser", "Firefox"]
+
+  // If app is a browser, keep title
+  if (browsers.contains(app)) {
+    return title
+  }
+  // If app is not a title, exclude
+  else {
+    return "excluded"
+  }
+}
+
 class MainThing {
   var observer: AXObserver?
   var oldWindow: AXUIElement?
@@ -211,9 +224,10 @@ class MainThing {
     var windowTitle: AnyObject?
     AXUIElementCopyAttributeValue(axElement, kAXTitleAttribute as CFString, &windowTitle)
 
-    let altered_title = "excluded"
+    var altered_title = windowTitle as? String ?? ""
+    altered_title = transformWindowTitle(app: frontmost.localizedName!, title: altered_title)
 
-    var data = NetworkMessage(app: frontmost.localizedName!, title: altered_title as? String ?? "")
+    var data = NetworkMessage(app: frontmost.localizedName!, title: altered_title)
 
     if frontmost.localizedName == "Google Chrome" {
       let chromeObject: ChromeProtocol = SBApplication.init(bundleIdentifier: "com.google.Chrome")!
