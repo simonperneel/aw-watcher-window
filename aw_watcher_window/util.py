@@ -47,6 +47,9 @@ title_to_cat_map.update(dict.fromkeys(['outlook', 'gmail', 'yahoo', 'scarlet'], 
 title_to_cat_map.update(dict.fromkeys(['zoom', 'google meet', 'google agenda', 'microsoft teams', 'google documenten', 'google spreadsheets',
                                        'google presentaties', 'google formulieren', 'deepl', 'google translate', 'google drive', 'miro',
                                        'adobe'], 'Work & Productivity'))
+title_to_cat_map.update(dict.fromkeys(["netflix", "streamz", "vtm", "prime video", "telenet tv", "proximus pickx", "hbo max", "vimeo", "twitch"], 'Video'))
+title_to_cat_map.update(dict.fromkeys(["zalando.be", "amazon.com", "amazon.nl", "bol.com", "coolblue", "collect&go", "delhaize", "carrefour", "albert heijn", "foodbag", "hellofresh"], 'Shopping'))
+title_to_cat_map.update(dict.fromkeys(["little big snake", "catan", "prosperous universe", "forge of empires", "agar.io", "isleward", "line rider", "a firelit room"], 'Entertainment & Games'))
 
 def alter_window_info(active_window: dict) -> dict:
     """
