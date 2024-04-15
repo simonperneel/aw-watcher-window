@@ -9,9 +9,9 @@ Cross-platform window-Watcher for Linux (X11), macOS, Windows.
 To disable window tracking by default, changes have been made in the `aw-watcher-window` code. The changes are located in [./aw_watcher_window/](./aw_watcher_window/)
 
 More specifically:
- - [main.py](./aw_watcher_window/main.py) has been modified to disable window tracking by default.
+ - [lib.py](./aw_watcher_window/lib.py) has been modified to disable window tracking by default.
 - [util.py](./aw_watcher_window/util.py) has been added to provide these functions. These functions provide the mapping from certain sites to their category
-- [macos.swift](aw_watcher_window/macos.swift) has been modified to do the mapping from certain sites to their category for macOS users
+- [macos.swift](aw_watcher_window/macos.swift) has been modified to do the mapping from certain sites to their category for *macOS users*
 
 ## How to install
 
