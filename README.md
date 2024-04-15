@@ -2,7 +2,7 @@ aw-watcher-window
 =================
 
 Cross-platform window-Watcher for Linux (X11), macOS, Windows.
-[SLIGHTLY MODIFIED VERSION] to disable window tracking by default.
+[SLIGHTLY MODIFIED VERSION] to disable window tracking by default:
 
 > By default, ActivityWatch also tracks the window title of the active window. This setting can be turned off globally. 
 > For browser apps on the computer, the website name is in the title. But there is also more information in the window title name. Some websites we wanted to track (Facebook, Twitter, Whatsapp), 
