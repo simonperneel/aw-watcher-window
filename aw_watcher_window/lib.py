@@ -1,3 +1,7 @@
+# Slightly modified to disable window title, except for some websites (facebook, youtube, whatsapp,...), where
+# the website is mapped to their broad category (social media, video, chat,...) and the title is not shown.
+# Adaptations are commented with "Custom added"
+
 import sys
 from typing import Optional
 
@@ -21,18 +25,18 @@ def get_current_window_linux() -> Optional[dict]:
 
 
 def get_current_window_macos(strategy: str) -> Optional[dict]:
-    # TODO should we use unknown when the title is blank like the other platforms?
 
     # jxa is the default & preferred strategy. It includes the url + incognito status
     if strategy == "jxa":
         from . import macos_jxa
 
         active_window = macos_jxa.getInfo()
+        # Custom added
         altered_window = alter_window_info(active_window)
-
         return altered_window
     elif strategy == "applescript":
         from . import macos_applescript
+        # Custom added
         active_window = macos_applescript.getInfo()
         altered_window = alter_window_info(active_window)
         return altered_window
@@ -53,6 +57,7 @@ def get_current_window_windows() -> Optional[dict]:
         title = "unknown"
 
     active_window = {"app": app, "title": title}
+    # Custom added
     altered_window = alter_window_info(active_window)
 
     return {"app": altered_window.get("app"), "title": altered_window.get("title")}
