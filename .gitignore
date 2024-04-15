@@ -8,3 +8,4 @@ dist
 aw-watcher-window-macos
 *.iml
 *.xml
+*.idea
