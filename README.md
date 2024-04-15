@@ -2,6 +2,7 @@ aw-watcher-window
 =================
 
 Cross-platform window-Watcher for Linux (X11), macOS, Windows.
+[SLIGHTLY MODIFIED VERSION] to disable window tracking by default.
 
 [![Build Status](https://travis-ci.org/ActivityWatch/aw-watcher-window.svg?branch=master)](https://travis-ci.org/ActivityWatch/aw-watcher-window)
 
