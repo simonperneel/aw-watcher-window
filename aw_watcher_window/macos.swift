@@ -332,6 +332,7 @@ func sendHeartbeat(_ heartbeat: Heartbeat) {
 }
 
 func sendHeartbeatSingle(_ heartbeat: Heartbeat, pulsetime: Double) async throws {
+  debug("[heartbeat] bucket: \(bucketName), timestamp: \(heartbeat.timestamp), pulsetime: \(round(pulsetime * 10) / 10), app: \(heartbeat.data.app), title: \(heartbeat.data.title), url: \(heartbeat.data.url ?? "")")
   let url = URL(string: "\(baseurl)/api/0/buckets/\(bucketName)/heartbeat?pulsetime=\(pulsetime)")!
 
   var urlRequest = URLRequest(url: url)
@@ -363,8 +364,6 @@ func transformWindowTitle(app: String ,title: String) -> String {
         return "excluded"
     }
 }
-
-  debug("[heartbeat] bucket: \(bucketName), timestamp: \(heartbeat.timestamp), pulsetime: \(round(pulsetime * 10) / 10), app: \(heartbeat.data.app), title: \(heartbeat.data.title), url: \(heartbeat.data.url ?? "")")
 
 class MainThing {
   var observer: AXObserver?
@@ -448,7 +447,7 @@ class MainThing {
 
         if let tabTitle = activeTab.title {
           if(tabTitle != "" && data.title != tabTitle) {
-            error("tab title diff: \(tabTitle), window title: \(data.title ?? "")")
+            error("tab title diff: \(tabTitle), window title: \(data.title"")")
             data.title = tabTitle
           }
         }
@@ -467,7 +466,7 @@ class MainThing {
       // comment above applies here as well
       if let tabTitle = activeTab.name {
         if tabTitle != "" && data.title != tabTitle {
-          error("tab title diff: \(tabTitle), window title: \(data.title ?? "")")
+          error("tab title diff: \(tabTitle), window title: \(data.title"")")
           data.title = tabTitle
         }
       }
