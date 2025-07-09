@@ -365,7 +365,6 @@ func transformWindowTitle(app: String ,title: String) -> String {
 }
 
   debug("[heartbeat] bucket: \(bucketName), timestamp: \(heartbeat.timestamp), pulsetime: \(round(pulsetime * 10) / 10), app: \(heartbeat.data.app), title: \(heartbeat.data.title), url: \(heartbeat.data.url ?? "")")
-}
 
 class MainThing {
   var observer: AXObserver?
@@ -559,12 +558,6 @@ class MainThing {
 }
 
 // TODO I believe this is handled by the python wrapper so it isn't needed here
-func checkAccess() -> Bool {
-  let checkOptPrompt = kAXTrustedCheckOptionPrompt.takeUnretainedValue() as NSString
-  let options = [checkOptPrompt: true]
-  let accessEnabled = AXIsProcessTrustedWithOptions(options as CFDictionary?)
-  return accessEnabled
-}
 func checkAccess() -> Bool {
   let checkOptPrompt = kAXTrustedCheckOptionPrompt.takeUnretainedValue() as NSString
   let options = [checkOptPrompt: true]
