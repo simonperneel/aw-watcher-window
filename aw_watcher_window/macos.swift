@@ -447,7 +447,7 @@ class MainThing {
 
         if let tabTitle = activeTab.title {
           if(tabTitle != "" && data.title != tabTitle) {
-            error("tab title diff: \(tabTitle), window title: \(data.title"")")
+            error("tab title diff: \(tabTitle), window title: \(data.title)")
             data.title = tabTitle
           }
         }
@@ -466,7 +466,7 @@ class MainThing {
       // comment above applies here as well
       if let tabTitle = activeTab.name {
         if tabTitle != "" && data.title != tabTitle {
-          error("tab title diff: \(tabTitle), window title: \(data.title"")")
+          error("tab title diff: \(tabTitle), window title: \(data.title)")
           data.title = tabTitle
         }
       }
