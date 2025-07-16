@@ -544,7 +544,7 @@ class MainThing {
     CFRunLoopAddSource(
       RunLoop.current.getCFRunLoop(),
       AXObserverGetRunLoopSource(observer!),
-      CFRunLoopMode.defaultMode
+      CFRunLoopMode.defaultMode 
     )
 
     var focusedWindow: AnyObject?
